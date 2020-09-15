@@ -148,3 +148,240 @@ Migrating to CreateStudents (1)
   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
   [1m[35mSQL (0.3ms)[0m  INSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["first_name", "Morty"], ["last_name", "Smith"], ["created_at", "2017-11-28 15:01:02.845645"], ["updated_at", "2017-11-28 15:01:02.845645"]]
   [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Started GET "/students" for ::1 at 2020-09-15 12:13:29 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StudentsController#index as HTML
+  Rendering students/index.html.erb within layouts/application
+  Rendered students/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 326ms (Views: 320.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/students" for ::1 at 2020-09-15 12:16:36 -0400
+Processing by StudentsController#index as HTML
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (33.8ms)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `candle' for #<#<Class:0x00007f977038ea28>:0x00007f9770543058>):
+    2: 
+    3: <% @students.each do |student| %>
+    4:     <p><%#= link_to student.name, student #%></p>
+    5:     <p><%= link_to candle.name, candle %></p>
+    6:   <% end %>
+  
+app/views/students/index.html.erb:5:in `block in _app_views_students_index_html_erb__3575196252911281671_70144200678480'
+app/views/students/index.html.erb:3:in `_app_views_students_index_html_erb__3575196252911281671_70144200678480'
+  Rendering /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.6ms)
+  Rendering /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendering /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (23.7ms)
+Started GET "/students" for ::1 at 2020-09-15 12:17:20 -0400
+Processing by StudentsController#index as HTML
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (5.4ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<Student:0x00007f976bd0c410>):
+    1: <h1>Students</h1>
+    2: 
+    3: <% @students.each do |student| %>
+    4:     <p><%= link_to student.name, student_path(student) %></p>
+    5:     <p><%# link_to candle.name, candle #%></p>
+    6:   <% end %>
+  
+app/views/students/index.html.erb:4:in `block in _app_views_students_index_html_erb__3575196252911281671_70144162608640'
+app/views/students/index.html.erb:3:in `_app_views_students_index_html_erb__3575196252911281671_70144162608640'
+  Rendering /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.4ms)
+  Rendering /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendering /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.5ms)
+  Rendered /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (14.7ms)
+Started GET "/students" for ::1 at 2020-09-15 12:17:34 -0400
+Processing by StudentsController#index as HTML
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (22.2ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `student_path' for #<#<Class:0x00007f977038ea28>:0x00007f97706287c0>
+Did you mean?  students_path):
+    1: <h1>Students</h1>
+    2: 
+    3: <% @students.each do |student| %>
+    4:     <p><%= link_to student.first_name, student_path(student) %></p>
+    5:     <p><%# link_to candle.name, candle #%></p>
+    6:   <% end %>
+  
+app/views/students/index.html.erb:4:in `block in _app_views_students_index_html_erb__3575196252911281671_70144201148540'
+app/views/students/index.html.erb:3:in `_app_views_students_index_html_erb__3575196252911281671_70144201148540'
+  Rendering /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.6ms)
+  Rendering /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendering /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.5ms)
+  Rendered /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (14.7ms)
+Started GET "/students" for ::1 at 2020-09-15 12:17:41 -0400
+Processing by StudentsController#index as HTML
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 56ms (Views: 54.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/students.1" for ::1 at 2020-09-15 12:17:44 -0400
+Processing by StudentsController#index as 
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 33ms (Views: 23.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/students.1" for ::1 at 2020-09-15 12:17:46 -0400
+Processing by StudentsController#index as 
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 30ms (Views: 22.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/students.1" for ::1 at 2020-09-15 12:17:47 -0400
+Processing by StudentsController#index as 
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 35ms (Views: 23.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/students.1" for ::1 at 2020-09-15 12:19:21 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StudentsController#index as 
+  Rendering students/index.html.erb within layouts/application
+  Rendered students/index.html.erb within layouts/application (0.6ms)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/jessicasalbert/Development/code/Mod2/restful-index-action/app/views/students/index.html.erb:4: syntax error, unexpected ')', expecting '.' or &. or :: or '['
+..._name, students_path(student) );@output_buffer.safe_append='...
+...                              ^
+/Users/jessicasalbert/Development/code/Mod2/restful-index-action/app/views/students/index.html.erb:6: syntax error, unexpected end, expecting ')'
+...er.safe_append='  '.freeze; end ;@output_buffer.to_s
+...                            ^~~
+/Users/jessicasalbert/Development/code/Mod2/restful-index-action/app/views/students/index.html.erb:7: syntax error, unexpected ensure, expecting ')'
+          ensure
+          ^~~~~~
+/Users/jessicasalbert/Development/code/Mod2/restful-index-action/app/views/students/index.html.erb:9: syntax error, unexpected end, expecting ')'
+          end
+          ^~~):
+  
+app/views/students/index.html.erb:4: syntax error, unexpected ')', expecting '.' or &. or :: or '['
+app/views/students/index.html.erb:6: syntax error, unexpected end, expecting ')'
+app/views/students/index.html.erb:7: syntax error, unexpected ensure, expecting ')'
+app/views/students/index.html.erb:9: syntax error, unexpected end, expecting ')'
+  Rendering /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.5ms)
+  Rendering /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendering /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (22.4ms)
+Started GET "/students.1" for ::1 at 2020-09-15 12:19:34 -0400
+Processing by StudentsController#index as 
+  Rendering students/index.html.erb within layouts/application
+  Rendered students/index.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/jessicasalbert/Development/code/Mod2/restful-index-action/app/views/students/index.html.erb:4: syntax error, unexpected ')', expecting '='
+...first_name, student.last_name );@output_buffer.safe_append='...
+...                              ^
+/Users/jessicasalbert/Development/code/Mod2/restful-index-action/app/views/students/index.html.erb:6: syntax error, unexpected end, expecting ')'
+...er.safe_append='  '.freeze; end ;@output_buffer.to_s
+...                            ^~~
+/Users/jessicasalbert/Development/code/Mod2/restful-index-action/app/views/students/index.html.erb:7: syntax error, unexpected ensure, expecting ')'
+          ensure
+          ^~~~~~
+/Users/jessicasalbert/Development/code/Mod2/restful-index-action/app/views/students/index.html.erb:9: syntax error, unexpected end, expecting ')'
+          end
+          ^~~):
+  
+app/views/students/index.html.erb:4: syntax error, unexpected ')', expecting '='
+app/views/students/index.html.erb:6: syntax error, unexpected end, expecting ')'
+app/views/students/index.html.erb:7: syntax error, unexpected ensure, expecting ')'
+app/views/students/index.html.erb:9: syntax error, unexpected end, expecting ')'
+  Rendering /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.4ms)
+  Rendering /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendering /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (14.7ms)
+Started GET "/students.1" for ::1 at 2020-09-15 12:20:17 -0400
+Processing by StudentsController#index as 
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 215ms (Views: 206.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/students/1" for ::1 at 2020-09-15 12:20:20 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/students/1"):
+  
+actionpack (5.0.7.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.7.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.7.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.0.7.2) lib/rails/engine.rb:522:in `call'
+rack (2.2.3) lib/rack/handler/webrick.rb:95:in `service'
+/Users/jessicasalbert/.rvm/rubies/ruby-2.6.1/lib/ruby/2.6.0/webrick/httpserver.rb:140:in `service'
+/Users/jessicasalbert/.rvm/rubies/ruby-2.6.1/lib/ruby/2.6.0/webrick/httpserver.rb:96:in `run'
+/Users/jessicasalbert/.rvm/rubies/ruby-2.6.1/lib/ruby/2.6.0/webrick/server.rb:307:in `block in start_thread'
+  Rendering /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered collection of /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [2 times] (1.8ms)
+  Rendered /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (13.7ms)
+  Rendering /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/jessicasalbert/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (46.5ms)
+Started GET "/students/" for ::1 at 2020-09-15 12:20:24 -0400
+Processing by StudentsController#index as HTML
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 20ms (Views: 17.6ms | ActiveRecord: 0.2ms)
+
+
